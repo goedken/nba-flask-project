@@ -39,6 +39,6 @@ def player_detail(player_id, stats_type):
 	elif (stats_type in PACE_TYPES):
 		player_info = player.PlayerGeneralSplits(player_id, season=CURRENT_SEASON, pace_adjust='Y').overall()
 	else:
-		return "WHAT THE FUCK"
+		player_info = player.PlayerSummary(player_id).info()
 	res = Response(json.dumps(player_info), mimetype='application/json')
 	return res
